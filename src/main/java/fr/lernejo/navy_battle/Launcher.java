@@ -1,13 +1,16 @@
 package fr.lernejo.navy_battle;
-
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpServer;
-
+import fr.lernejo.navy_battle.Implement.ContentSrv;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
+import java.util.UUID;
+import java.util.concurrent.Executors;
 
 public class Launcher {
+    private ContentSrv localServer;
+    private ContentSrv remoteServer;
 
     public static void main(String[] args) {
         try {
