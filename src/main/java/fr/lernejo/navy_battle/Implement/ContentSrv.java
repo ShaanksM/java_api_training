@@ -8,18 +8,19 @@ public class ContentSrv {
     private final String msg;
 
     public ContentSrv(String id, String url, String msg) {
-        this.id = id; this.msg = msg; this.url = url;
+        this.id = id; this.url = url; this.msg = msg;
     }
-    public String getMessage() {
-        return msg;
-    }
-
     public String getId() {
         return id;
-    }  // On retourne  l'ID
+    }
 
     public String getUrl() {
         return url;
+    }
+
+    public String getMessage() {
+
+        return msg;
     }
 
     public JSONObject toJSON(){
@@ -32,9 +33,18 @@ public class ContentSrv {
 
     public static ContentSrv fromJSON(JSONObject obt) throws JSONException {
         return new ContentSrv(
+            obt.getString("id"),
             obt.getString("url"),
-            obt.getString("message"),
-            obt.getString("id")
+            obt.getString("message")
+
+        );
+    }
+
+    public ContentSrv withURL(String url) {
+        return new ContentSrv(
+            this.id,
+            url,
+            this.msg
         );
     }
 }
