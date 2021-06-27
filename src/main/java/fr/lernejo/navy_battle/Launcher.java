@@ -57,7 +57,7 @@ public class Launcher {
     }
 
     private void hdlpng(HttpExchange exchange) throws IOException {
-        String body = "Ping : OK !";
+        String body = "OK";
         exchange.sendResponseHeaders(202, body.length());
         try (OutputStream os = exchange.getResponseBody()) { // (1)
             os.write(body.getBytes());
