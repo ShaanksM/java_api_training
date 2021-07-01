@@ -17,16 +17,16 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ServerMainTEST {
 
-    static MyServer StartTestServer(String port) throws Exception {
+    static ServerMain StartTestServer(String port) throws Exception {
         try {
-            return new MyServer(port);
+            return new ServerMain(port);
         }catch (IOException e) {
             Assertions.assertEquals(0,1,"Number of exception");
             throw new Exception("Something went wrong with the test server");
         }
     }
 
-    static void DestroyTestServer(MyServer server)
+    static void DestroyTestServer(ServerMain server)
     {
         if (server == null)
             return;
@@ -35,7 +35,7 @@ class ServerMainTEST {
 
     @Test
     void PingTest()  {
-        MyServer server = null;
+        ServerMain server = null;
         try {
             server = StartTestServer("9877");
         } catch (Exception e) {
@@ -60,7 +60,7 @@ class ServerMainTEST {
 
     @Test
     void TrashTest()  {
-        MyServer server = null;
+        ServerMain server = null;
         try {
             server = StartTestServer("9878");
         } catch (Exception e) {
@@ -121,7 +121,7 @@ class ServerMainTEST {
         } catch (URISyntaxException | InterruptedException | IOException e) {
             Assertions.assertEquals(0,1,"Number of exception");
         }
-        server.game.ingame[0] = true;
+        server.Game.inGame[0] = true;
         try {
             HttpClient cli =HttpClient.newHttpClient();
             HttpRequest requetePost = HttpRequest.newBuilder()

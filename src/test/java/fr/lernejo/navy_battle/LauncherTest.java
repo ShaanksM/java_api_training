@@ -33,10 +33,10 @@ class LauncherTest {
             String[] arg = new String[]{"@@"};
             Launcher.main(arg);
             Assertions.assertEquals(1,0,"Number of exception");
-        }catch (illegaleArgt e) {
-            Assertions.assertEquals(1, 1, "Number of illegaleArgt");
+        }catch (IllegalArgumentException e) {
+            Assertions.assertEquals(1, 1, "Number of IllegalArgumentException");
         } catch (IOException | InterruptedException | URISyntaxException e) {
-            Assertions.assertEquals(1, 0, "Number of illegaleArgt");
+            Assertions.assertEquals(1, 0, "Number of IllegalArgumentException");
         };
 
         try {

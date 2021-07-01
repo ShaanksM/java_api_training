@@ -17,9 +17,9 @@ class RequeteTEST {
 
     @Test
     void GoodStartrequest(){
-        MyServer s = null;
+        ServerMain s = null;
         try {
-            s = MyServerTest.StartTestServer("9879");
+            s = ServerMainTEST.StartTestServer("9879");
         } catch (Exception e) {
             e.printStackTrace();
             Assertions.assertEquals(0,1,"Number of exception on server");
@@ -115,20 +115,20 @@ class RequeteTEST {
                 return null;
             }
         };
-        RequestHandler handler = new RequestHandler(s);
+        Requete handler = new Requete(s);
         try {
             handler.StartHandler(exchange,true);
         } catch (IOException | InterruptedException e) {
             Assertions.assertEquals(0,1,"Number of exception on request");
         }
-        MyServerTest.DestroyTestServer(s);
+        ServerMainTEST.DestroyTestServer(s);
     }
 
     @Test
     void BadStartrequest(){
-        MyServer s = null;
+        ServerMain s = null;
         try {
-            s = MyServerTest.StartTestServer("9880");
+            s = ServerMainTEST.StartTestServer("9880");
         } catch (Exception e) {
             e.printStackTrace();
             Assertions.assertEquals(0,1,"Number of exception on server");
@@ -224,21 +224,21 @@ class RequeteTEST {
                 return null;
             }
         };
-        RequestHandler handler = new RequestHandler(s);
+        Requete handler = new Requete(s);
         try {
             handler.StartHandler(exchange,true);
         } catch (IOException | InterruptedException e) {
             Assertions.assertEquals(0,1,"Number of exception on request");
         }
-        MyServerTest.DestroyTestServer(s);
+        ServerMainTEST.DestroyTestServer(s);
     }
 
     @Test
     void NoMoreShipFire() throws IOException {
-        MyServer s = null;
+        ServerMain s = null;
         try {
-            s = MyServerTest.StartTestServer("9899");
-            s.game.ingame[0] = false;
+            s = ServerMainTEST.StartTestServer("9899");
+            s.Game.inGame[0] = false;
         } catch (Exception e) {
             e.printStackTrace();
             Assertions.assertEquals(0,1,"Number of exception on server");
@@ -339,13 +339,13 @@ class RequeteTEST {
                 return null;
             }
         };
-        RequestHandler handler = new RequestHandler(s);
+        Requete handler = new Requete(s);
         try {
-            handler.FireHandler(exchange,true);
+            handler.Feu(exchange,true);
         } catch (IOException e) {
             Assertions.assertEquals(0,1,"Number of exception on request");
         }
-        s.game.ingame[0] = true;
+        s.Game.inGame[0] = true;
         exchange = new HttpsExchange() {
             @Override
             public SSLSession getSSLSession() {
@@ -441,15 +441,15 @@ class RequeteTEST {
                 return null;
             }
         };
-        handler = new RequestHandler(s);
+        handler = new Requete(s);
         try {
-            handler.FireHandler(exchange,true);
+            handler.Feu(exchange,true);
         } catch (IOException e) {
             Assertions.assertEquals(0,1,"Number of exception on request");
         }
 
-        final int[] coord = s.game.yourboard.get(4).get(0);
-        final int[] coord2 = s.game.yourboard.get(4).get(1);
+        final int[] coord = s.Game.yourboard.get(4).get(0);
+        final int[] coord2 = s.Game.yourboard.get(4).get(1);
         exchange = new HttpsExchange() {
             @Override
             public SSLSession getSSLSession() {
@@ -545,9 +545,9 @@ class RequeteTEST {
                 return null;
             }
         };
-        handler = new RequestHandler(s);
+        handler = new Requete(s);
         try {
-            handler.FireHandler(exchange,true);
+            handler.Feu(exchange,true);
         } catch (IOException e) {
             Assertions.assertEquals(0,1,"Number of exception on request");
         }
@@ -647,9 +647,9 @@ class RequeteTEST {
                 return null;
             }
         };
-        handler = new RequestHandler(s);
+        handler = new Requete(s);
         try {
-            handler.FireHandler(exchange,true);
+            handler.Feu(exchange,true);
         } catch (IOException e) {
             Assertions.assertEquals(0,1,"Number of exception on request");
         }
@@ -749,13 +749,13 @@ class RequeteTEST {
                 return null;
             }
         };
-        handler = new RequestHandler(s);
+        handler = new Requete(s);
         try {
-            handler.FireHandler(exchange,true);
+            handler.Feu(exchange,true);
         } catch (IOException e) {
             Assertions.assertEquals(0,1,"Number of exception on request");
         }
-        MyServerTest.DestroyTestServer(s);
+        ServerMainTEST.DestroyTestServer(s);
     }
 
 }

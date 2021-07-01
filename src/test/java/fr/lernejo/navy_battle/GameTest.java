@@ -14,18 +14,18 @@ class GameTest {
     @Test
     void ShotOutofBound() throws IOException {
         Game g = new Game(null);
-        Assertions.assertEquals(Game.FireResult.out,g.ShotAt("Shanks"),"Le tir est hors champs/Bateau");
-        Assertions.assertEquals(Game.FireResult.out,g.ShotAt("Z9"),"Le tir est hors champs/Bateau");
-        Assertions.assertEquals(Game.FireResult.out,g.ShotAt("A91"),"Le tir est hors champs/Bateau");
-        Assertions.assertEquals(Game.FireResult.out,g.ShotAt("A0"),"Le tir est hors champs/Bateau");
-        Assertions.assertEquals(Game.FireResult.out,g.ShotAt("b11"),"Le tir est hors champs/Bateau");
+        Assertions.assertEquals(Game.ResultatTir.out,g.TirerA("Shanks"),"Le tir est hors champs/Bateau");
+        Assertions.assertEquals(Game.ResultatTir.out,g.TirerA("Z9"),"Le tir est hors champs/Bateau");
+        Assertions.assertEquals(Game.ResultatTir.out,g.TirerA("A91"),"Le tir est hors champs/Bateau");
+        Assertions.assertEquals(Game.ResultatTir.out,g.TirerA("A0"),"Le tir est hors champs/Bateau");
+        Assertions.assertEquals(Game.ResultatTir.out,g.TirerA("b11"),"Le tir est hors champs/Bateau");
     }
 
     @Test
     void RetourTir() throws IOException {
         ServerMain s = new ServerMain ("1235");
         Game g = new Game(s);
-        g.FireBack();
+        g.RetourDuTir();
     }
     @Test
     void BonneVise() throws IOException {
@@ -33,11 +33,11 @@ class GameTest {
         Game g = new Game(null);
         int b= 0;
         while (b < 100) {
-            int[] coord = g.TonNavire.get(0).get(0);
+            int[] coord = g.yourboard.get(0).get(0);
             if (g.yourboard.get(0).size() == 1)
-                Assertions.assertEquals(Game.FireResult.sunk, g.ShotAt(String.format("%s%s", (char) (coord[1] + 'A'), coord[0] + 1)), "Tir coule");
+                Assertions.assertEquals(Game.ResultatTir.sunk, g.TirerA(String.format("%s%s", (char) (coord[1] + 'A'), coord[0] + 1)), "Tir coule");
             else
-                Assertions.assertEquals(Game.FireResult.hit, g.ShotAt(String.format("%s%s", (char) (coord[1] + 'A'), coord[0] + 1)), "Le coup fut un tir");
+                Assertions.assertEquals(Game.ResultatTir.hit, g.TirerA(String.format("%s%s", (char) (coord[1] + 'A'), coord[0] + 1)), "Le coup fut un tir");
             if (g.yourboard.size() == 0)
                 break;
             b++;
@@ -46,7 +46,7 @@ class GameTest {
         {
             for (int y = 0; y < 10; y++)
             {
-            Assertions.assertEquals(Game.FireResult.miss, g.ShotAt(String.format("%s%s", (char) (y + 'A'), x )), "Rate, dommage");
+                Assertions.assertEquals(Game.ResultatTir.miss, g.TirerA(String.format("%s%s", (char) (y + 'A'), x )), "Rate, dommage");
             }
         }
     }

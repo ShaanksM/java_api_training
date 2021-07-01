@@ -11,6 +11,6 @@ class ClientWebTEST {
     @Test
     void AccepterClient() throws IOException, URISyntaxException, InterruptedException {
         ClientWeb ci = new ClientWeb(new ServerMain("1237"), "http://localhost:1237");
-        ci.ConnectToServer();
+        ci.SeConnecterAuServ();
     }
 }

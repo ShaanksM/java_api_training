@@ -10,13 +10,13 @@ class verifJsonTEST {
     @Test
     void GoodStartRequest()
     {
-        JSON_Check check = new JSON_Check();
+        verifJson check = new verifJson();
     }
 
     @Test
     void BadStartRequest()
     {
-        JSON_Check check = new JSON_Check();
+        verifJson check = new verifJson();
         try {
             Assertions.assertEquals(false,check.ValidateStartRequest("{\"id\": \"2aca7611-0ae4-49f3-bf63-75bef4769028\",\"url\": 90,\"message\": \"May the best code win\"}"),"A bad request returned");
             Assertions.assertEquals(1, 0, "Number of org.everit.json.schema.ValidationException");
@@ -31,15 +31,15 @@ class verifJsonTEST {
 
     @Test
     void BadFireRequest() {
-        JSON_Check check = new JSON_Check();
+        verifJson check = new verifJson();
         Game g = new Game(null);
         try {
-            Assertions.assertEquals(Game.FireResult.out, check.ValidateFireRequest("{\"consequence\": \"yolo\",\"shipLeft\": true}", g), "A bad request returned");
+            Assertions.assertEquals(Game.ResultatTir.out, check.ValidateFireRequest("{\"consequence\": \"yolo\",\"shipLeft\": true}", g), "A bad request returned");
             Assertions.assertEquals(1, 0, "Number of org.everit.json.schema.ValidationException");
         } catch (Exception e) {
         }
         try {
-            Assertions.assertEquals(Game.FireResult.out, check.ValidateFireRequest("{\"shipLeft\": true}", g), "A bad request returned");
+            Assertions.assertEquals(Game.ResultatTir.out, check.ValidateFireRequest("{\"shipLeft\": true}", g), "A bad request returned");
             Assertions.assertEquals(1, 0, "Number of org.everit.json.schema.ValidationException");
         }catch (Exception e){
 
@@ -49,12 +49,12 @@ class verifJsonTEST {
     @Test
     void GoodFireRequest()
     {
-        JSON_Check check = new JSON_Check();
+        verifJson check = new verifJson();
         Game g = new Game(null);
-        Assertions.assertEquals(Game.FireResult.sunk,check.ValidateFireRequest("{\"consequence\": \"sunk\",\"shipLeft\": true}",g),"A good request returned");
-        Assertions.assertEquals(Game.FireResult.hit,check.ValidateFireRequest("{\"consequence\": \"hit\",\"shipLeft\": true}",g),"A good request returned");
-        Assertions.assertEquals(Game.FireResult.sunk,check.ValidateFireRequest("{\"consequence\": \"sunk\",\"shipLeft\": false}",g),"A good request returned");
-        Assertions.assertEquals(g.ingame[0],false,"Game Should have ended");
+        Assertions.assertEquals(Game.ResultatTir.sunk,check.ValidateFireRequest("{\"consequence\": \"sunk\",\"shipLeft\": true}",g),"A good request returned");
+        Assertions.assertEquals(Game.ResultatTir.hit,check.ValidateFireRequest("{\"consequence\": \"hit\",\"shipLeft\": true}",g),"A good request returned");
+        Assertions.assertEquals(Game.ResultatTir.sunk,check.ValidateFireRequest("{\"consequence\": \"sunk\",\"shipLeft\": false}",g),"A good request returned");
+        Assertions.assertEquals(g.inGame[0],false,"Game Should have ended");
 
     }
 

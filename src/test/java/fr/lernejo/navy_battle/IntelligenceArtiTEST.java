@@ -13,30 +13,30 @@ class IntelligenceArtiTEST {
     @Test
     void TestBonPlacement()
     {
-        AI test = new AI();
+        IntelligenceArti test = new IntelligenceArti();
         List<List<int[]>> ships =new ArrayList<>();
         List<int[]> temp = new ArrayList<>();
         temp.add(new int[]{0,0});
         ships.add(temp);
-        Assertions.assertEquals(true,test.PositionnmentBon(ships,5,5,0,2),"Navire peut etre place");
-        Assertions.assertEquals(true,test.PositionnmentBon(ships,5,5,1,2),"Navire peut etre place");
-        Assertions.assertEquals(true,test.PositionnmentBon(ships,0,3,1,2),"Navire peut etre place");
-        Assertions.assertEquals(true,test.PositionnmentBon(ships,3,0,0,2),"Navire peut etre place");
-        Assertions.assertEquals(false,test.PositionnmentBon(ships,2,0,1,2),"Navire peut pas etre place");
-        Assertions.assertEquals(false,test.PositionnmentBon(ships,0,2,0,2),"Navire peut pas etre place");
-        Assertions.assertEquals(false,test.PositionnmentBon(ships,0,1,1,2),"Navire peut pas etre place");
-        Assertions.assertEquals(false,test.PositionnmentBon(ships,1,0,0,2),"Navire peut pas etre place");
-        Assertions.assertEquals(false,test.PositionnmentBon(ships,0,0,1,1),"Navire peut pas etre place");
-        Assertions.assertEquals(false,test.PositionnmentBon(ships,0,0,0,1),"Navire peut pas etre place");
+        Assertions.assertEquals(true,test.VerificationPlacement(ships,5,5,0,2),"Navire peut etre place");
+        Assertions.assertEquals(true,test.VerificationPlacement(ships,5,5,1,2),"Navire peut etre place");
+        Assertions.assertEquals(true,test.VerificationPlacement(ships,0,3,1,2),"Navire peut etre place");
+        Assertions.assertEquals(true,test.VerificationPlacement(ships,3,0,0,2),"Navire peut etre place");
+        Assertions.assertEquals(false,test.VerificationPlacement(ships,2,0,1,2),"Navire peut pas etre place");
+        Assertions.assertEquals(false,test.VerificationPlacement(ships,0,2,0,2),"Navire peut pas etre place");
+        Assertions.assertEquals(false,test.VerificationPlacement(ships,0,1,1,2),"Navire peut pas etre place");
+        Assertions.assertEquals(false,test.VerificationPlacement(ships,1,0,0,2),"Navire peut pas etre place");
+        Assertions.assertEquals(false,test.VerificationPlacement(ships,0,0,1,1),"Navire peut pas etre place");
+        Assertions.assertEquals(false,test.VerificationPlacement(ships,0,0,0,1),"Navire peut pas etre place");
     }
 
     @Test
     void TestPlacement()
     {
-        AI test = new AI();
+        IntelligenceArti test = new IntelligenceArti();
         List<List<int[]>> ships =new ArrayList<>();
-        test.PlaceShip(ships,2,0,1,2);
-        test.PlaceShip(ships,0,2,0,2);
+        test.PlacementBateau(ships,2,0,1,2);
+        test.PlacementBateau(ships,0,2,0,2);
     }
 
     void AfficherNavires(List<List<int[]>> ships)
@@ -66,7 +66,7 @@ class IntelligenceArtiTEST {
     @Test
     void GenererBateau()
     {
-        AI test = new AI();
+        IntelligenceArti test = new IntelligenceArti();
         for (int i = 0; i < 25; i++) {
             int k = 0;
             List<List<int[]>> ships = test.GenererBateau();
