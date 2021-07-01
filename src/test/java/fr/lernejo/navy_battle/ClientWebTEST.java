@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class ClientWebTEST {
     @Test
     void AccepterClient() throws IOException, URISyntaxException, InterruptedException {
-        ClientHttp ci = new ClientHttp(new ServerMain("1237"), "http://localhost:1237");
+        ClientWeb ci = new ClientWeb(new ServerMain("1237"), "http://localhost:1237");
         ci.ConnectToServer();
     }
 }
