@@ -29,21 +29,16 @@ public class Carte {
         var random = new Random();
         var boats = new ArrayList<>(Arrays.asList(BOATS));
         Collections.shuffle(boats);
-
         while (!boats.isEmpty()) {
             int boat = boats.get(0);
-
             int x = Math.abs(random.nextInt()) % getWidth();
             int y = Math.abs(random.nextInt()) % getHeight();
             var orientation = random.nextBoolean() ? orientacion.HORIZONTAL : orientacion.HORIZONTAL.VERTICAL;
-
             if (!direction(boat, x, y, orientation))
                 continue;
-
             AjoutBateau(boat, x, y, orientation);
             boats.remove(0);
         }
-
     }
 
     private boolean direction(int length, int x, int y, orientacion orientation) {
