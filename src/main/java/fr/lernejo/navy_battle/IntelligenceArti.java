@@ -59,5 +59,4 @@ public class IntelligenceArti {
         }
         return toreturn;
     };
-    
 }

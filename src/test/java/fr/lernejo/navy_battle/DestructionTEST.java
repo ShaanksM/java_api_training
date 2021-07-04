@@ -17,6 +17,7 @@ class DestructionTEST {
         }catch (Exception e){}
     }
 
+
     @Test
     void FinduJeu() throws IOException {
         Game g = new Game( new ServerMain("1234"));

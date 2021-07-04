@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.regex.Pattern;
 
+
 public class Game {
     final List<List<int[]>> yourboard;
     final boolean[] inGame;

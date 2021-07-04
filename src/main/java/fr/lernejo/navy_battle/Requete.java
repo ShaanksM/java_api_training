@@ -18,6 +18,7 @@ public class Requete {
         jsck = new verifJson();
     }
 
+
      String GetBodyRequest(HttpExchange exchange) throws IOException {
         InputStreamReader isr =  new InputStreamReader(exchange.getRequestBody(),"utf-8");
         BufferedReader br = new BufferedReader(isr);

@@ -26,6 +26,7 @@ class LauncherTest {
         Assertions.assertEquals(0,0,"Number of exception");
     }
 
+
     @Test
     void MauvaisArgt()
     {

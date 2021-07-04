@@ -12,6 +12,7 @@ public abstract class SeparationDuServeur {
 
     private final HttpClient client = HttpClient.newHttpClient();
 
+
     public JSONObject sApresRequete(String url, JSONObject obj) throws IOException, InterruptedException {
         HttpRequest requetePost = HttpRequest.newBuilder()
             .uri(URI.create(url))

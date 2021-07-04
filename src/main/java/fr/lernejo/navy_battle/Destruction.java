@@ -22,7 +22,6 @@ public class Destruction {
         }}
     }
 
-
     public int[] TargetCellPourTirer(){
         return allshots.remove(game.IntelligenceArti.rng.nextInt(allshots.size()));
     }

@@ -10,6 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class IntelligenceArtiTEST {
 
+
     @Test
     void TestBonPlacement()
     {
