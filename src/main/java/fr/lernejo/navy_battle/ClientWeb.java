@@ -24,8 +24,8 @@ public class ClientWeb {
 
     public boolean SeConnecterAuServ() throws URISyntaxException, IOException, InterruptedException {
         try {
-            HttpClient cli =HttpClient.newHttpClient();
-            HttpRequest requetePost = HttpRequest.newBuilder().uri(new URI(url + "/api/Game/start")).setHeader("Accept", "application/json")
+            HttpClient cli = HttpClient.newHttpClient();
+            HttpRequest requetePost = HttpRequest.newBuilder().uri(new URI(url + "/api/game/start")).setHeader("Accept", "application/json")
                 .setHeader("Content-Type", "application/json")
                 .POST(HttpRequest.BodyPublishers.ofString(String.format("{\"id\": \"%s\",\"url\": \"%s\",\"message\": \"%s\"}",server.serverID,server.url,"I love cat and u ?")))
                 .build();

@@ -72,12 +72,11 @@ public class ServerMain {
     ServerMain(String port) throws IOException {
         this.port = Integer.parseInt(port);
         url = String.format("http://localhost:%s",port);
-        Executor singlethread = Executors.newFixedThreadPool(1);
         server = HttpServer.create(new InetSocketAddress(this.port),50);
-        server.setExecutor(singlethread);
+        server.setExecutor(Executors.newSingleThreadExecutor());
         server.createContext("/ping",this.PingRespond);
-        server.createContext("/api/Game/start",this.StartRespond);
-        server.createContext("/api/Game/fire",this.FireRespond);
+        server.createContext("/api/game/start",this.StartRespond);
+        server.createContext("/api/game/fire",this.FireRespond);
         server.createContext("/",this.DefaultRespond);
         this.serverID = UUID.randomUUID().toString();
         rqtHdlr = new Requete(this);
